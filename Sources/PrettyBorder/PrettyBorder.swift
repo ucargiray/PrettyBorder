@@ -7,12 +7,12 @@ public struct PrettyBorder: ViewModifier {
     var isEnabled : Binding<Bool>
 
     // Border modifiers are here
-    var borderCornerRadius: CGFloat = 20
+    var borderCornerRadius: CGFloat
     var borderStrokeColor: Color = .black
     var borderLineWidth : CGFloat = 3
 
     // Background color for view is here
-    var disabledColor: Color = .gray
+    var disabledColor: Color
     var enabledColor: Color = .blue
     @State private var currentColor : Color
 
@@ -23,9 +23,29 @@ public struct PrettyBorder: ViewModifier {
     var paddingFromBottom: CGFloat = 10
 
 
-    public init(isEnabled : Binding<Bool>) {
+    public init(isEnabled : Binding<Bool>,
+                borderCornerRadius : CGFloat?,
+                borderStrokeColor : Color?,
+                borderLineWidth : CGFloat?,
+                disabledColor : Color?,
+                enabledColor : Color?,
+                paddingFromLeft : CGFloat?,
+                paddingFromTop : CGFloat?,
+                paddingFromRight : CGFloat?,
+                paddingFromBottom : CGFloat?
+    
+    ) {
         self.isEnabled = isEnabled
-        self.currentColor = disabledColor
+        self.currentColor = disabledColor ?? .gray
+        self.borderCornerRadius = borderCornerRadius ?? 20
+        self.borderStrokeColor = borderStrokeColor ?? .black
+        self.borderLineWidth = borderLineWidth ?? 1
+        self.disabledColor = disabledColor ?? .gray
+        self.enabledColor = enabledColor ?? .blue
+        self.paddingFromLeft = paddingFromLeft ?? 5
+        self.paddingFromTop = paddingFromTop ?? 5
+        self.paddingFromRight = paddingFromRight ?? 5
+        self.paddingFromBottom = paddingFromBottom ?? 5
     }
 
     @available(iOS 13.0, *)
