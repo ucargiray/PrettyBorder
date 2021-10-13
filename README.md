@@ -1,7 +1,7 @@
 # PrettyBorder
 
 ## Description
-PrettyBorder is a SwiftUI package for managing an customized border and background at any kind of view.
+PrettyBorder is a SwiftUI package for managing a customized border and background at any kind of view.
 
 <br>
 
